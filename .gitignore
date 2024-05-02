@@ -17,7 +17,6 @@ pnpm-lock.yaml
 
 # production
 /build
-.env-local
 
 # misc
 .DS_Store

@@ -14,7 +14,7 @@ export default function LoginForm() {
           <TextInput
             label="Email"
             {...register("email")}
-            placeholder="you@mantine.dev"
+            placeholder="akashaf@eduElavate.com"
             required
           />
           <PasswordInput
