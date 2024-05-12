@@ -1,13 +1,7 @@
 "use client";
-import { createClient } from "@/utils/supabase/client";
-import { Button, Text } from "@mantine/core";
+import { signOut } from "@/app/login/actions";
+import { Button } from "@mantine/core";
 import { IconLogout, IconUser } from "@tabler/icons-react";
-
-export async function signOut() {
-  const supabase = createClient();
-  const { error } = await supabase.auth.signOut();
-  return error;
-}
 
 export default function Navbar() {
   return (
@@ -25,7 +19,7 @@ export default function Navbar() {
           variant="outline"
           color="red"
           leftSection={<IconLogout className="w-5 h-5" />}
-          onClick={() => signOut}
+          onClick={() => signOut()}
         >
           Logout
         </Button>

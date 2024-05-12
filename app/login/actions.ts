@@ -1,18 +1,16 @@
-'use server'
+"use server";
 
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from "@/utils/supabase/server";
 
-export async function login(formData: {
-  email: string,
-  password: string
-}) {
+/**
+ * Logs in a user with the provided email and password.
+ * @param formData - The login form data containing the email and password.
+ */
+export async function login(formData: { email: string; password: string }) {
   const supabase = createClient();
-
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
   const data = {
     email: formData.email,
     password: formData.password,
@@ -24,6 +22,17 @@ export async function login(formData: {
     redirect("/error");
   }
 
+  revalidatePath("/", "layout");
+  redirect("/");
+}
+
+/**
+ * Signs out the user by calling the signOut method of the Supabase authentication client.
+ * After signing out, it revalidates the path and redirects the user to the home page.
+ */
+export async function signOut() {
+  const supabase = createClient();
+  const { error } = await supabase.auth.signOut();
   revalidatePath("/", "layout");
   redirect("/");
 }
