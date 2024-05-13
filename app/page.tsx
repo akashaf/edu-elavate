@@ -22,7 +22,7 @@ export default async function Home() {
     subject &&
     subject.map((item) => (
       <div key={item.uuid}>
-        <Link href={item.file_url}>
+        <Link href={`matematik/${item.uuid}`}>
           <Card className="transition duration-300 ease-in-out transform hover:scale-105">
             <CardTitle>{item.name}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
