@@ -1,29 +1,35 @@
-import { createClient } from "@/utils/supabase/server";
 import { Card, SimpleGrid } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { CardDescription, CardTitle } from "./components/card-hover-effect";
 import Link from "next/link";
-import { getSubject } from "./action";
+import { getSubject, getUserSession } from "./action";
 
 export default async function Home() {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const userSession = await getUserSession();
 
   const subject = await getSubject();
 
-  if (!user) {
+  if (!userSession.user) {
     return redirect("/login");
   }
 
-  const cards =
+  interface Subject {
+    uuid: string;
+    name: string;
+    description: string;
+  }
+
+  const cards: JSX.Element[] | null =
     subject &&
-    subject.map((item) => (
+    subject.map((item: Subject) => (
       <div key={item.uuid}>
         <Link href={`matematik/${item.uuid}`}>
-          <Card className="transition duration-300 ease-in-out transform hover:scale-105">
+          <Card
+            withBorder
+            radius="md"
+            shadow="md"
+            className="transition duration-300 ease-in-out transform hover:scale-105"
+          >
             <CardTitle>{item.name}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
