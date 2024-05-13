@@ -32,7 +32,7 @@ export async function login(formData: { email: string; password: string }) {
  */
 export async function signOut() {
   const supabase = createClient();
-  const { error } = await supabase.auth.signOut();
+  await supabase.auth.signOut();
   revalidatePath("/", "layout");
   redirect("/");
 }

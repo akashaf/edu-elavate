@@ -31,7 +31,7 @@ export default function RootLayout({
         <MantineProvider defaultColorScheme="auto" theme={theme}>
           <Navbar />
 
-          <main className="p-4">{children}</main>
+          <main className=" min-h-screen p-4 pt-24">{children}</main>
         </MantineProvider>
       </body>
     </html>
