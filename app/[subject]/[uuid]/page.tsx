@@ -1,4 +1,4 @@
-import { getSubjectByUuid } from "@/app/action";
+import { getAssessmentBySubjectUuid, getSubjectByUuid } from "@/app/action";
 import PDFViewerIndex from "@/app/components/PDFViewer";
 import { Title } from "@mantine/core";
 
@@ -10,6 +10,7 @@ interface PageProps {
 
 const TopicPage = async ({ params }: PageProps) => {
   const subjectByUuid = await getSubjectByUuid(params.uuid);
+  const assessmentBySubjectUuid = await getAssessmentBySubjectUuid(params.uuid);
 
   return (
     <div>
@@ -21,7 +22,7 @@ const TopicPage = async ({ params }: PageProps) => {
       >
         {subjectByUuid?.[0].name}
       </Title>
-      <PDFViewerIndex {...{ subjectByUuid }} />
+      <PDFViewerIndex {...{ subjectByUuid, assessmentBySubjectUuid }} />
     </div>
   );
 };

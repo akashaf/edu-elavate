@@ -9,7 +9,6 @@ export const getUserSession = async () => {
 
   return data;
 };
-
 export const getSubject = async () => {
   const supabase = createClient();
   const { data } = await supabase.from("subject").select();
@@ -18,6 +17,15 @@ export const getSubject = async () => {
 export const getSubjectByUuid = async (uuid: string) => {
   const supabase = createClient();
   const { data } = await supabase.from("subject").select().eq("uuid", uuid);
+
+  return data;
+};
+export const getAssessmentBySubjectUuid = async (uuid: string) => {
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("assessment")
+    .select()
+    .eq("subject_uuid", uuid);
 
   return data;
 };

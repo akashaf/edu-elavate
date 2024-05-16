@@ -42,8 +42,8 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ fileUrl }) => {
     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.js">
       <div
         style={{
-          height: "750px",
-          width: "900px",
+          height: "80vh",
+          // width: "900px",
           marginLeft: "auto",
           marginRight: "auto",
         }}
