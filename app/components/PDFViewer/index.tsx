@@ -12,7 +12,7 @@ export default function PDFViewerIndex({
   return (
     <Box pos="relative">
       <PDFViewer fileUrl={subjectByUuid[0].file_url} />
-      <Box pos="absolute" bottom={40} right={40}>
+      <Box pos="fixed" bottom={20} right={40}>
         <Menu
           position="top"
           offset={8}
