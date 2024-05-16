@@ -7,7 +7,6 @@ import {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-import readingIndicatorPlugin from "./readingIndicatorPlugin";
 import { useCallback } from "react";
 
 interface PDFViewerProps {
@@ -15,8 +14,6 @@ interface PDFViewerProps {
 }
 
 const PDFViewer: React.FC<PDFViewerProps> = ({ fileUrl }) => {
-  const readingIndicatorPluginInstance = readingIndicatorPlugin();
-  const { ReadingIndicator } = readingIndicatorPluginInstance;
 
   const renderToolbar = useCallback(
     (Toolbar: (props: ToolbarProps) => React.ReactElement) => (
@@ -31,11 +28,10 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ fileUrl }) => {
             width: "100%",
           }}
         >
-          <ReadingIndicator />
         </div>
       </>
     ),
-    [ReadingIndicator]
+    []
   );
 
   const defaultLayoutPluginInstance = defaultLayoutPlugin({
@@ -43,11 +39,17 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ fileUrl }) => {
   });
 
   return (
-    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-      <Viewer
-        fileUrl={fileUrl}
-        plugins={[defaultLayoutPluginInstance, readingIndicatorPluginInstance]}
-      />
+    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.js">
+      <div
+        style={{
+          height: "750px",
+          width: "900px",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <Viewer fileUrl={fileUrl} plugins={[defaultLayoutPluginInstance]} />
+      </div>
     </Worker>
   );
 };
