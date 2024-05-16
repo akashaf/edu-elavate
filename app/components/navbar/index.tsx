@@ -1,4 +1,4 @@
-import { getUserSession } from "@/app/action";
+import { getUserSession } from "@/app/actions";
 import { NavLink } from "@mantine/core";
 import Link from "next/link";
 import AuthSection from "./AuthSection";

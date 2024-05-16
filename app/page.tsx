@@ -2,7 +2,7 @@ import { Card, SimpleGrid } from "@mantine/core";
 import { redirect } from "next/navigation";
 import { CardDescription, CardTitle } from "./components/card-hover-effect";
 import Link from "next/link";
-import { getSubject, getUserSession } from "./action";
+import { getSubject, getUserSession } from "./actions";
 
 export default async function Home() {
   const userSession = await getUserSession();

@@ -13,8 +13,10 @@ export default function PDFViewerIndex({
   return (
     <Container>
       <Box pos="relative">
-        <PDFViewer fileUrl={subjectByUuid[0].file_url} />
-        <Assessment {...{assessmentBySubjectUuid}} />
+        <PDFViewer fileUrl={subjectByUuid[0].location} />
+        {assessmentBySubjectUuid.length > 0 && (
+          <Assessment {...{ assessmentBySubjectUuid }} />
+        )}
       </Box>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { getAssessmentBySubjectUuid, getSubjectByUuid } from "@/app/action";
+import { getAssessmentBySubjectUuid, getSubjectByUuid } from "@/app/actions";
 import PDFViewerIndex from "@/app/components/PDFViewer";
 import { Title } from "@mantine/core";
 

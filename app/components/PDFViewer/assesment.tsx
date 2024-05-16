@@ -26,18 +26,18 @@ const Assessment = async ({
         </Menu.Target>
         <Menu.Dropdown>
           {assessmentBySubjectUuid.map(
-            (assessment: { uuid: Key; file_name: string }) => (
+            (assessment: { uuid: Key; name: string }) => (
               <Menu.Item key={assessment.uuid}>
                 <Anchor
                   component={Link}
-                  href={`/assessment/${assessment.file_name.replace(
+                  href={`/assessment/${assessment.name.replace(
                     /\s/g,
                     "_"
                   )}`}
                   underline="never"
                   className="text-black dark:text-white"
                 >
-                  {assessment.file_name}
+                  {assessment.name}
                 </Anchor>
               </Menu.Item>
             )
