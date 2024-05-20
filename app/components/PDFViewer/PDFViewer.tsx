@@ -43,7 +43,6 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ fileUrl }) => {
       <div
         style={{
           height: "80vh",
-          // width: "900px",
           marginLeft: "auto",
           marginRight: "auto",
         }}

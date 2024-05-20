@@ -13,7 +13,7 @@ const TopicPage = async ({ params }: PageProps) => {
   const assessmentBySubjectUuid = await getAssessmentBySubjectUuid(params.uuid);
 
   return (
-    <div>
+    <>
       <Title
         classNames={{
           root: "capitalize text-center pb-4",
@@ -23,7 +23,7 @@ const TopicPage = async ({ params }: PageProps) => {
         {subjectByUuid?.[0].name}
       </Title>
       <PDFViewerIndex {...{ subjectByUuid, assessmentBySubjectUuid }} />
-    </div>
+    </>
   );
 };
 
