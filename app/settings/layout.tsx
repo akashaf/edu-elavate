@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getUserSession } from "../actions";
 import { Code, Container, Flex, ScrollArea, rem } from "@mantine/core";
-import { IconGauge, IconNotes } from "@tabler/icons-react";
+import { IconGauge } from "@tabler/icons-react";
 import { cn } from "@/utils/cn";
 import { LinksGroup } from "../components/profile/NavbarLinksGroup";
 import classes from "../components/profile/NavbarNested.module.css";
