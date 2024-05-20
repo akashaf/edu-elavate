@@ -16,7 +16,7 @@ export default function AuthSection({ session }: { session: any }) {
           variant="outline"
           color="gray"
           leftSection={<IconUser className="w-5 h-5" />}
-          href='settings'
+          href='settings/profile'
         >
           Profile
         </Button>
