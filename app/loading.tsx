@@ -1,17 +1,24 @@
-import React from "react";
-import { Skeleton } from "@mantine/core";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { Container, Skeleton } from "@mantine/core";
 
 const LoadingPage = () => {
+  const [random, setRandom] = useState<number>(0.0);
+  useEffect(() => {
+    setInterval(() => {
+      setRandom(Math.random() * 100);
+    }, 1000);
+  });
+
   return (
-    <div className="flex items-center justify-center h-screen">
-      <Skeleton height={400} width={600} radius="md" />
-      <Skeleton
-        height={40}
-        width={200}
-        radius="sm"
-        style={{ marginLeft: "20px" }}
-      />
-    </div>
+    <>
+    <Container>
+      <Skeleton height={8} radius="xl" />
+      <Skeleton height={8} mt={6} radius="xl" />
+      <Skeleton height={8} mt={6} width={`${random}%`} radius="xl" />
+    </Container>
+    </>
   );
 };
 
