@@ -52,11 +52,11 @@ export default async function settingsLayout({
             </ScrollArea>
 
             <div className={cn("text-right", classes.footer)}>
-              <Code fw={700}>v3.1.2</Code>
+              <Code fw={700}>v{process.env.VERSION}</Code>
             </div>
           </nav>
         </div>
-        <div>{children}</div>
+        <div className="grow">{children}</div>
       </Flex>
     </Container>
   );
